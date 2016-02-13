@@ -113,7 +113,11 @@ import UIKit
     class OwnedPokemon: Pokemon {
         
         var owner : String
-        
+        var isMine = false {
+            didSet {
+                image = UIImage(CGImage: image.CGImage!, scale: CGFloat(1.0), orientation: UIImageOrientation.UpMirrored)
+            }
+        }
         init(name: String, type: PokemonType, owner : String) {
             self.owner = owner
             super.init(name: name, type: type)

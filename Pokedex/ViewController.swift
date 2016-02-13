@@ -53,6 +53,8 @@ class ViewController: UIViewController {
         
         MyPokemon = OwnedPokemon(name: "bulbasour", type: PokemonType.Grass, owner: "DLainez")
         
+        MyPokemon.isMine = true
+        
         MyPokemon.animationFrame["Idle"] = PokemonAnimationFrame(Ata: 0, duration: 0.9, repeatCount: 0)
         MyPokemon.animationFrame["AttackOne"] = PokemonAnimationFrame(Ata: 1, duration: 1.35, repeatCount: 1)
         MyPokemon.animationFrame["AttackTwo"] = PokemonAnimationFrame(Ata: 2, duration: 2.15, repeatCount: 1)
