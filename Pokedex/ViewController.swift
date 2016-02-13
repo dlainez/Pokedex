@@ -9,7 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var MyPokemon : OwnedPokemon!
+    
     @IBOutlet weak var PokemonImageView: UIImageView!
     @IBOutlet weak var Attack1: UIButton!
     @IBOutlet weak var Attack2: UIButton!
@@ -18,43 +20,29 @@ class ViewController: UIViewController {
         Attack1.enabled = setEnable
         Attack2.enabled = setEnable
     }
-    var At : Bool!
-    func MyAnimationImage(Ata : Int) {
-        
-        
-        var sec : String
-        var nAta = "Idle_00"
-        var secFor = 41
-        var animationImages = [UIImage]()
     
-        if Ata == 1 {
-            nAta = "Attack1_00"
-            secFor = 51
-        }
-        if Ata == 2 {
-            nAta = "Attack_200"
-            secFor = 66
-        }
-        for i in 1 ... secFor {
-            sec = String(i)
-            if i < 10 {
-                sec = "0\(i)"
-            }
-            let currentImage = UIImage(named : nAta + String(sec) + ".png")
-            if let currentImage = currentImage {
-                animationImages.append(currentImage)
-            }
-        }
+    var At : Bool!
+    func MyAnimationImage(animationImages : [UIImage], animationKeyFrame : PokemonAnimationFrame?) {
         
-        //Attack1.titleLabel.text = "Repose"
-        PokemonImageView.animationImages = animationImages
-        PokemonImageView.animationDuration = 1.5
-        PokemonImageView.startAnimating()
+        if let animationKeyFrame = animationKeyFrame {
+            
+            PokemonImageView.stopAnimating()
+        
+            PokemonImageView.animationImages = animationImages
+            PokemonImageView.animationDuration = animationKeyFrame.duration
+            PokemonImageView.animationRepeatCount = animationKeyFrame.repeatCount
+        
+            PokemonImageView.startAnimating()
+            
+        }
     }
     func MyReset() {
         At = true
-        PokemonImageView.stopAnimating()
-        MyAnimationImage(0)
+        
+        MyPokemon.MyAnimationImage("Idle") { (animationImages, animationKeyFrame) -> Void in
+            self.MyAnimationImage(animationImages, animationKeyFrame: animationKeyFrame)
+        }
+        
         SetButton(true)
         Attack1.setTitle("Animation A",forState: UIControlState.Normal)
         Attack2.setTitle("Animation B",forState: UIControlState.Normal)
@@ -62,12 +50,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    
         
-        PokemonImageView.image = UIImage(named : "Idle_0001.png")
+        MyPokemon = OwnedPokemon(name: "bulbasour", type: PokemonType.Grass, owner: "DLainez")
         
-        At = true
-        MyAnimationImage(0)
+        MyPokemon.animationFrame["Idle"] = PokemonAnimationFrame(Ata: 0, duration: 0.9, repeatCount: 0)
+        MyPokemon.animationFrame["AttackOne"] = PokemonAnimationFrame(Ata: 1, duration: 1.35, repeatCount: 1)
+        MyPokemon.animationFrame["AttackTwo"] = PokemonAnimationFrame(Ata: 2, duration: 2.15, repeatCount: 1)
+        
+        PokemonImageView.image = MyPokemon.image
+        
+        MyReset()
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,38 +69,30 @@ class ViewController: UIViewController {
     
     //MARK
     @IBAction func Attack2Actiom(sender: UIButton) {
-        PokemonImageView.stopAnimating()
         if (At == true) {
             At = false
             SetButton(false)
             sender.setTitle("Attacking", forState: UIControlState.Normal)
-            MyAnimationImage(1)
+            
+            MyPokemon.MyAnimationImage("AttackOne") { (animationImages, animationKeyFrame) -> Void in
+                self.MyAnimationImage(animationImages, animationKeyFrame: animationKeyFrame)
+            }
+            
         }
-        /*else {
-            At = true
-            MyAnimationImage(0)
-            SetButton(true)
-        }*/
-        NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("MyReset"), userInfo: nil, repeats: false)
-        
+        NSTimer.scheduledTimerWithTimeInterval(2.70, target: self, selector: Selector("MyReset"), userInfo: nil, repeats: false)
     }
     @IBAction func Attack1Action(sender: UIButton) {
-        PokemonImageView.stopAnimating()
         if (At == true) {
             At = false
             SetButton(false)
             sender.setTitle("Attacking", forState: UIControlState.Normal)
-            MyAnimationImage(2)
+            
+            MyPokemon.MyAnimationImage("AttackTwo") { (animationImages, animationKeyFrame) -> Void in
+                self.MyAnimationImage(animationImages, animationKeyFrame: animationKeyFrame)
+            }
+            
         }
-        /*else
-        {
-            At = true
-            MyAnimationImage(0)
-            SetButton(true)
-        }*/
-        NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("MyReset"), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(2.70, target: self, selector: Selector("MyReset"), userInfo: nil, repeats: false)
     }
-
-
 }
 
