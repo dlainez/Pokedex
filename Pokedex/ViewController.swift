@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var TempPokemonName : String = "charmander"
     var myPokemon : OwnedPokemon!
     
     @IBOutlet weak var pokemonImageView: UIImageView!
@@ -21,23 +22,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        myPokemon = OwnedPokemon(name: "charmander", type: PokemonType.Grass, owner: "eduardo")
-        myPokemon.caption = "Charmander es un Pokémon de tipo fuego introducido en la primera generación. Es uno de los Pokémon iniciales que pueden elegir los entrenadores que empiezan su aventura en la región Kanto, excepto en Pokémon Amarillo."
-        myPokemon.isMine = true
-        myPokemon.animationsFrames["idle"] = PokemonAnimationFrame(maxFrames : 41, duration : 1.0, repeatCount : 0)
-        myPokemon.animationsFrames["attack1"] = PokemonAnimationFrame(maxFrames : 51, duration : 1.2, repeatCount : 1)
-        myPokemon.animationsFrames["attack2"] = PokemonAnimationFrame(maxFrames : 66, duration : 1.4, repeatCount : 1)
-        
-        pokemonImageView.image = myPokemon.image
-        
-        let tackle = Attack(name: "Tackle", power: 5)
-        let growl = Attack(name: "Growl")
-        
-        myPokemon.attack1 = tackle
-        myPokemon.attack2 = growl
-        
         //View configs
-        
+        pokemonImageView.image = myPokemon.image
         captionTextView.text = myPokemon.caption
         returnToIdle ()
         
