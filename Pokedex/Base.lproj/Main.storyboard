@@ -1,52 +1,205 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GQj-Ct-OkK">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Pokedex-->
+        <scene sceneID="BND-YX-tmb">
+            <objects>
+                <viewController id="F6u-ke-BzA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Fu-Y2-ncy"/>
+                        <viewControllerLayoutGuide type="bottom" id="HuI-1r-G0S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LDj-eW-nHH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UW6-eI-R47">
+                                <rect key="frame" x="107" y="255" width="200" height="30"/>
+                                <state key="normal" title="Charmander"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="t0W-g2-BpP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="su8-RZ-BHg">
+                                <rect key="frame" x="107" y="551" width="200" height="30"/>
+                                <state key="normal" title="Bulbasour"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="Ilo-lm-stA"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="charmander_idle_0001.png" translatesAutoresizingMaskIntoConstraints="NO" id="XDb-AH-A5A">
+                                <rect key="frame" x="129" y="119" width="145" height="128"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bulbasaur_idle_0001.png" translatesAutoresizingMaskIntoConstraints="NO" id="DXb-f4-gdc">
+                                <rect key="frame" x="129" y="415" width="145" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pokedex" id="6AF-S2-raO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BYh-aC-hko" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="560" y="408"/>
+        </scene>
+        <!--Pokemon Name-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CW2-8D-MBu">
-                                <rect key="frame" x="59" y="20" width="226" height="185"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUN-FC-C7Y">
-                                <rect key="frame" x="59" y="213" width="124" height="30"/>
+                                <rect key="frame" x="20" y="596" width="100" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Animation A"/>
+                                <state key="normal" title="attack1"/>
                                 <connections>
-                                    <action selector="Attack1Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P83-pj-Vjt"/>
+                                    <action selector="attack1Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jot-KR-9O2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZ3-dr-Bq0">
-                                <rect key="frame" x="174" y="213" width="111" height="30"/>
-                                <state key="normal" title="Animation B"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CW2-8D-MBu">
+                                <rect key="frame" x="20" y="103" width="374" height="289"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0ge-Me-cj2">
+                                <rect key="frame" x="20" y="393" width="374" height="195"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZ3-dr-Bq0">
+                                <rect key="frame" x="294" y="596" width="100" height="30"/>
+                                <state key="normal" title="attack2"/>
                                 <connections>
-                                    <action selector="Attack2Actiom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="prW-mC-269"/>
+                                    <action selector="attack2Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HxI-6R-Otq"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Pokemon Name" id="OWR-Z7-g5q">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="VHN-6f-tRO">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qtk-69-9y3">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <segue destination="Sgl-qn-S3l" kind="presentation" id="tm5-WK-NCM"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="Attack1" destination="LUN-FC-C7Y" id="Ffh-q0-6b3"/>
-                        <outlet property="Attack2" destination="SZ3-dr-Bq0" id="ALf-2D-Hqc"/>
                         <outlet property="PokemonImageView" destination="CW2-8D-MBu" id="3Ls-7v-gVC"/>
+                        <outlet property="attack1" destination="LUN-FC-C7Y" id="ch0-Xq-wY2"/>
+                        <outlet property="attack2" destination="SZ3-dr-Bq0" id="8gi-N7-Ei1"/>
+                        <outlet property="captionTextView" destination="0ge-Me-cj2" id="Tco-G1-6PM"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="339" y="413"/>
+            <point key="canvasLocation" x="1147" y="413"/>
+        </scene>
+        <!--Edit Pokemon Name-->
+        <scene sceneID="BIo-CH-luV">
+            <objects>
+                <viewController id="5MH-5s-bv5" customClass="EditPokemonViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yQ6-7R-f9C"/>
+                        <viewControllerLayoutGuide type="bottom" id="HJY-9l-9ru"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fZs-LM-rzV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <userGuides>
+                            <userLayoutGuide location="117" affinity="minY"/>
+                        </userGuides>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Pokemon Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yKd-Q7-NRG">
+                                <rect key="frame" x="39" y="102" width="336" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Pokemon Name" id="6Qf-xj-y47">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="UVh-UK-TLk">
+                            <connections>
+                                <action selector="cancelAction:" destination="5MH-5s-bv5" id="D7F-KD-g9Z"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Qco-fA-WVu">
+                            <connections>
+                                <action selector="saveAction:" destination="5MH-5s-bv5" id="z2w-vX-5PP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="UVh-UK-TLk" id="vPW-oT-QaT"/>
+                        <outlet property="newNameTextField" destination="yKd-Q7-NRG" id="zKW-AE-Tjn"/>
+                        <outlet property="saveButton" destination="Qco-fA-WVu" id="6b9-a2-J7Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sUw-7o-krK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2359" y="413"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="w8l-S4-JSB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GQj-Ct-OkK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ncP-4T-36u">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="F6u-ke-BzA" kind="relationship" relationship="rootViewController" id="7f8-oH-4vX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hcE-l2-LPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21" y="408"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FTL-ga-4iD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sgl-qn-S3l" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="r7L-sC-Itp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5MH-5s-bv5" kind="relationship" relationship="rootViewController" id="DaP-hW-n41"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="exH-D7-lSi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1733" y="413"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bulbasaur_idle_0001.png" width="192" height="192"/>
+        <image name="charmander_idle_0001.png" width="192" height="192"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="t0W-g2-BpP"/>
+    </inferredMetricsTieBreakers>
 </document>

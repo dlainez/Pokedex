@@ -3,98 +3,112 @@
 //  Pokedex
 //
 //  Created by CFPAPP on 12/2/16.
-//  Copyright © 2016 DLAINEZM. All rights reserved.
+//  Copyright © 2016 Nintendo. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
     
-    var MyPokemon : OwnedPokemon!
+    var myPokemon : OwnedPokemon!
     
-    @IBOutlet weak var PokemonImageView: UIImageView!
-    @IBOutlet weak var Attack1: UIButton!
-    @IBOutlet weak var Attack2: UIButton!
+    @IBOutlet weak var pokemonImageView: UIImageView!
+    @IBOutlet weak var attack1: UIButton!
+    @IBOutlet weak var attack2: UIButton!
+    @IBOutlet weak var captionTextView: UITextView!
     
-    func SetButton(setEnable : Bool) {
-        Attack1.enabled = setEnable
-        Attack2.enabled = setEnable
-    }
-    
-    var At : Bool!
-    func MyAnimationImage(animationImages : [UIImage], animationKeyFrame : PokemonAnimationFrame?) {
-        
-        if let animationKeyFrame = animationKeyFrame {
-            
-            PokemonImageView.stopAnimating()
-        
-            PokemonImageView.animationImages = animationImages
-            PokemonImageView.animationDuration = animationKeyFrame.duration
-            PokemonImageView.animationRepeatCount = animationKeyFrame.repeatCount
-        
-            PokemonImageView.startAnimating()
-            
-        }
-    }
-    func MyReset() {
-        At = true
-        
-        MyPokemon.MyAnimationImage("Idle") { (animationImages, animationKeyFrame) -> Void in
-            self.MyAnimationImage(animationImages, animationKeyFrame: animationKeyFrame)
-        }
-        
-        SetButton(true)
-        Attack1.setTitle("Animation A",forState: UIControlState.Normal)
-        Attack2.setTitle("Animation B",forState: UIControlState.Normal)
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        MyPokemon = OwnedPokemon(name: "bulbasour", type: PokemonType.Grass, owner: "DLainez")
+        myPokemon = OwnedPokemon(name: "charmander", type: PokemonType.Grass, owner: "eduardo")
+        myPokemon.caption = "Charmander es un Pokémon de tipo fuego introducido en la primera generación. Es uno de los Pokémon iniciales que pueden elegir los entrenadores que empiezan su aventura en la región Kanto, excepto en Pokémon Amarillo."
+        myPokemon.isMine = true
+        myPokemon.animationsFrames["idle"] = PokemonAnimationFrame(maxFrames : 41, duration : 1.0, repeatCount : 0)
+        myPokemon.animationsFrames["attack1"] = PokemonAnimationFrame(maxFrames : 51, duration : 1.2, repeatCount : 1)
+        myPokemon.animationsFrames["attack2"] = PokemonAnimationFrame(maxFrames : 66, duration : 1.4, repeatCount : 1)
         
-        MyPokemon.isMine = true
+        pokemonImageView.image = myPokemon.image
         
-        MyPokemon.animationFrame["Idle"] = PokemonAnimationFrame(Ata: 0, duration: 0.9, repeatCount: 0)
-        MyPokemon.animationFrame["AttackOne"] = PokemonAnimationFrame(Ata: 1, duration: 1.35, repeatCount: 1)
-        MyPokemon.animationFrame["AttackTwo"] = PokemonAnimationFrame(Ata: 2, duration: 2.15, repeatCount: 1)
+        let tackle = Attack(name: "Tackle", power: 5)
+        let growl = Attack(name: "Growl")
         
-        PokemonImageView.image = MyPokemon.image
+        myPokemon.attack1 = tackle
+        myPokemon.attack2 = growl
         
-        MyReset()
+        //View configs
+        
+        captionTextView.text = myPokemon.caption
+        returnToIdle ()
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK
-    @IBAction func Attack2Actiom(sender: UIButton) {
-        if (At == true) {
-            At = false
-            SetButton(false)
-            sender.setTitle("Attacking", forState: UIControlState.Normal)
-            
-            MyPokemon.MyAnimationImage("AttackOne") { (animationImages, animationKeyFrame) -> Void in
-                self.MyAnimationImage(animationImages, animationKeyFrame: animationKeyFrame)
-            }
-            
+    func setButtons(enable enable : Bool) {
+        
+        if enable {
+            attack1.setTitle(myPokemon.attack1.name, forState: UIControlState.Normal)
+            attack2.setTitle(myPokemon.attack2.name, forState: UIControlState.Normal)
         }
-        NSTimer.scheduledTimerWithTimeInterval(2.70, target: self, selector: Selector("MyReset"), userInfo: nil, repeats: false)
+        
+        attack1.enabled = enable
+        attack2.enabled = enable
     }
-    @IBAction func Attack1Action(sender: UIButton) {
-        if (At == true) {
-            At = false
-            SetButton(false)
-            sender.setTitle("Attacking", forState: UIControlState.Normal)
+    
+    func setAnimation (animationImages : [UIImage], animationKeyFrame : PokemonAnimationFrame?) {
+        
+        if let animationKeyFrame = animationKeyFrame {
             
-            MyPokemon.MyAnimationImage("AttackTwo") { (animationImages, animationKeyFrame) -> Void in
-                self.MyAnimationImage(animationImages, animationKeyFrame: animationKeyFrame)
-            }
+            pokemonImageView.stopAnimating()
+            
+            pokemonImageView.animationImages = animationImages
+            pokemonImageView.animationDuration = animationKeyFrame.duration
+            pokemonImageView.animationRepeatCount = animationKeyFrame.repeatCount
+            pokemonImageView.startAnimating()
             
         }
-        NSTimer.scheduledTimerWithTimeInterval(2.70, target: self, selector: Selector("MyReset"), userInfo: nil, repeats: false)
+        
+    }
+    
+    func returnToIdle () {
+        myPokemon.setAnimation("idle") { (animationImages, animationKeyFrame) -> Void in
+            self.setAnimation(animationImages, animationKeyFrame: animationKeyFrame)
+        }
+        setButtons(enable: true)
+    }
+    
+    //MARK: - Actions
+    
+    @IBAction func attackAction(sender: UIButton) {
+        setButtons(enable: false)
+        sender.setTitle("Attacking", forState: UIControlState.Normal)
+    }
+    
+    @IBAction func attack1Action(sender: UIButton) {
+        let duration = 1.6
+        
+        myPokemon.setAnimation("attack1") { (animationImages, animationKeyFrame) -> Void in
+            self.setAnimation(animationImages, animationKeyFrame: animationKeyFrame)
+        }
+        
+        NSTimer.scheduledTimerWithTimeInterval(duration, target: self, selector: Selector("returnToIdle"), userInfo: nil, repeats: false)
+    }
+    
+    @IBAction func attack2Action(sender: UIButton) {
+        let duration = 1.2
+        
+        myPokemon.setAnimation("attack2") { (animationImages, animationKeyFrame) -> Void in
+            self.setAnimation(animationImages, animationKeyFrame: animationKeyFrame)
+        }
+        
+        NSTimer.scheduledTimerWithTimeInterval(duration, target: self, selector: Selector("returnToIdle"), userInfo: nil, repeats: false)
+    }
+    
+    @IBAction override func unwindForSegue(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        
     }
 }
-
