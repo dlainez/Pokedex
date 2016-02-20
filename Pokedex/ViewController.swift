@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, EditPokemonDelegate {
     
     var TempPokemonName : String = "charmander"
     var myPokemon : OwnedPokemon!
@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         //View configs
         pokemonImageView.image = myPokemon.image
         captionTextView.text = myPokemon.caption
+        self.title = myPokemon.customName
         returnToIdle ()
         
     }
@@ -67,6 +68,15 @@ class ViewController: UIViewController {
         setButtons(enable: true)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowEditSegue" {
+            if let vc = segue.destinationViewController as? EditPokemonViewController {
+                vc.delegate = self
+                vc.defaultText = myPokemon.customName
+            }
+        }
+    }
+    
     //MARK: - Actions
     
     @IBAction func attackAction(sender: UIButton) {
@@ -96,5 +106,11 @@ class ViewController: UIViewController {
     
     @IBAction override func unwindForSegue(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
         
+    }
+    
+    //MARK - Action Protocolo
+    func didChangeName(newName : String) {
+        myPokemon.customName = newName
+        self.title = myPokemon.customName
     }
 }

@@ -8,7 +8,14 @@
 
 import UIKit
 
-class EditPokemonViewController: UIViewController {
+protocol EditPokemonDelegate {
+    func didChangeName(newName : String)
+}
+
+class EditPokemonViewController: UIViewController, UITextFieldDelegate {
+    
+    var delegate : EditPokemonDelegate!
+    var defaultText : String?
     
     @IBOutlet weak var newNameTextField: UITextField!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -18,6 +25,8 @@ class EditPokemonViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        newNameTextField.delegate = self
+        newNameTextField.text = defaultText ?? ""
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,8 +56,15 @@ class EditPokemonViewController: UIViewController {
     
     @IBAction func saveAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true) { () -> Void in
-            
+            self.delegate.didChangeName(self.newNameTextField.text!)
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        saveAction(self)
+        
+        return true
     }
     
     

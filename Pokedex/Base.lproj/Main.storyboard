@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Pokedex-->
@@ -95,7 +96,7 @@
                     <navigationItem key="navigationItem" title="Pokemon Name" id="OWR-Z7-g5q" colorLabel="IBBuiltInLabel-Blue">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="VHN-6f-tRO">
                             <connections>
-                                <segue destination="Sgl-qn-S3l" kind="presentation" id="TP0-hW-uGn"/>
+                                <segue destination="5MH-5s-bv5" kind="presentation" identifier="ShowEditSegue" id="FJj-FX-EvE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -123,16 +124,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <userGuides>
-                            <userLayoutGuide location="117" affinity="minY"/>
+                            <userLayoutGuide location="118" affinity="minY"/>
                         </userGuides>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Pokemon Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yKd-Q7-NRG">
-                                <rect key="frame" x="37" y="98" width="247" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TpL-Dv-EVq">
+                                <rect key="frame" x="16" y="20" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelAction:" destination="5MH-5s-bv5" eventType="touchUpInside" id="mct-2y-Whe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wvd-eg-KkY">
+                                <rect key="frame" x="270" y="20" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveAction:" destination="5MH-5s-bv5" eventType="touchUpInside" id="JJX-I6-yA6"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Pokemon Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yKd-Q7-NRG">
+                                <rect key="frame" x="16" y="58" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="yKd-Q7-NRG" secondAttribute="trailing" id="4T7-5q-cyr"/>
+                            <constraint firstItem="TpL-Dv-EVq" firstAttribute="leading" secondItem="fZs-LM-rzV" secondAttribute="leadingMargin" id="BL8-zb-XDC"/>
+                            <constraint firstItem="Wvd-eg-KkY" firstAttribute="trailing" secondItem="fZs-LM-rzV" secondAttribute="trailingMargin" id="KpD-WJ-6sY"/>
+                            <constraint firstItem="yKd-Q7-NRG" firstAttribute="top" secondItem="Wvd-eg-KkY" secondAttribute="bottom" constant="8" id="Ws3-Px-dSr"/>
+                            <constraint firstItem="TpL-Dv-EVq" firstAttribute="top" secondItem="yQ6-7R-f9C" secondAttribute="bottom" id="Zzy-rL-flY"/>
+                            <constraint firstItem="Wvd-eg-KkY" firstAttribute="top" secondItem="yQ6-7R-f9C" secondAttribute="bottom" id="kzh-Vj-Z7N"/>
+                            <constraint firstItem="yKd-Q7-NRG" firstAttribute="leading" secondItem="fZs-LM-rzV" secondAttribute="leadingMargin" id="n6K-iW-cWK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Pokemon Name" id="6Qf-xj-y47">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="UVh-UK-TLk">
@@ -155,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUw-7o-krK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1828" y="408"/>
+            <point key="canvasLocation" x="1809" y="408"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="w8l-S4-JSB">
@@ -181,6 +205,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sgl-qn-S3l" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r7L-sC-Itp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -199,4 +224,7 @@
         <image name="bulbasaur_idle_0001.png" width="192" height="192"/>
         <image name="charmander_idle_0001.png" width="192" height="192"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="FJj-FX-EvE"/>
+    </inferredMetricsTieBreakers>
 </document>

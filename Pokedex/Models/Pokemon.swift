@@ -90,9 +90,7 @@ class Pokemon : NSObject {
                     animationImages.append(currentImage)
                 }
             }
-            
         }
-        
         completion(animationImages: animationImages, animationKeyFrame: animationKeyFrame)
     }
 }
@@ -108,6 +106,7 @@ class OwnedPokemon: Pokemon {
     }
     init(name: String, type: PokemonType, owner : String) {
         self.owner = owner
+        self.customName = name.capitalizedString
         super.init(name: name, type: type)
     }
 }

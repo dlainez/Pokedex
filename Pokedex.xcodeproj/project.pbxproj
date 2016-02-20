@@ -369,9 +369,9 @@
 		705255011C77E65700632EE9 /* bulbasaur_idle_0041.png in Resources */ = {isa = PBXBuildFile; fileRef = 705254631C77E65700632EE9 /* bulbasaur_idle_0041.png */; };
 		705255031C77F8AC00632EE9 /* EditPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705255021C77F8AC00632EE9 /* EditPokemonViewController.swift */; };
 		705255051C7805D500632EE9 /* PokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705255041C7805D500632EE9 /* PokemonListViewController.swift */; };
+		70AE8C491C78F17D00B0DD9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70AE8C471C78F17D00B0DD9D /* Main.storyboard */; };
 		70BBDBA71C6EC79500503564 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BBDBA61C6EC79500503564 /* AppDelegate.swift */; };
 		70BBDBA91C6EC79500503564 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BBDBA81C6EC79500503564 /* ViewController.swift */; };
-		70BBDBAC1C6EC79500503564 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70BBDBAA1C6EC79500503564 /* Main.storyboard */; };
 		70BBDBAE1C6EC79500503564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70BBDBAD1C6EC79500503564 /* Assets.xcassets */; };
 		70BBDBB11C6EC79500503564 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70BBDBAF1C6EC79500503564 /* LaunchScreen.storyboard */; };
 		70EBA3651C6FA17200C54461 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EBA3641C6FA17200C54461 /* Pokemon.swift */; };
@@ -741,10 +741,10 @@
 		705254631C77E65700632EE9 /* bulbasaur_idle_0041.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bulbasaur_idle_0041.png; sourceTree = "<group>"; };
 		705255021C77F8AC00632EE9 /* EditPokemonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPokemonViewController.swift; sourceTree = "<group>"; };
 		705255041C7805D500632EE9 /* PokemonListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonListViewController.swift; sourceTree = "<group>"; };
+		70AE8C481C78F17D00B0DD9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		70BBDBA31C6EC79500503564 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70BBDBA61C6EC79500503564 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70BBDBA81C6EC79500503564 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		70BBDBAB1C6EC79500503564 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		70BBDBAD1C6EC79500503564 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70BBDBB01C6EC79500503564 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70BBDBB21C6EC79500503564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1209,8 +1209,8 @@
 				70BBDBBA1C6EC7D400503564 /* Resources */,
 				70BBDBA61C6EC79500503564 /* AppDelegate.swift */,
 				70BBDBA81C6EC79500503564 /* ViewController.swift */,
-				70BBDBAA1C6EC79500503564 /* Main.storyboard */,
 				70BBDBAD1C6EC79500503564 /* Assets.xcassets */,
+				70AE8C471C78F17D00B0DD9D /* Main.storyboard */,
 				70BBDBAF1C6EC79500503564 /* LaunchScreen.storyboard */,
 				70BBDBB21C6EC79500503564 /* Info.plist */,
 			);
@@ -1604,7 +1604,6 @@
 				705253651C77E0B300632EE9 /* charmander_attack2_0044.png in Resources */,
 				705253B81C77E0B300632EE9 /* charmander_idle_0060.png in Resources */,
 				7052539B1C77E0B300632EE9 /* charmander_idle_0031.png in Resources */,
-				70BBDBAC1C6EC79500503564 /* Main.storyboard in Resources */,
 				705254821C77E65700632EE9 /* bulbasaur_attack1_0031.png in Resources */,
 				7052537B1C77E0B300632EE9 /* charmander_attack2_0066.png in Resources */,
 				705254D41C77E65700632EE9 /* bulbasaur_attack2_0062.png in Resources */,
@@ -1660,6 +1659,7 @@
 				7052549F1C77E65700632EE9 /* bulbasaur_attack2_0009.png in Resources */,
 				705253811C77E0B300632EE9 /* charmander_idle_0005.png in Resources */,
 				705253621C77E0B300632EE9 /* charmander_attack2_0041.png in Resources */,
+				70AE8C491C78F17D00B0DD9D /* Main.storyboard in Resources */,
 				7052537F1C77E0B300632EE9 /* charmander_idle_0003.png in Resources */,
 				705253A31C77E0B300632EE9 /* charmander_idle_0039.png in Resources */,
 				705253BA1C77E0B300632EE9 /* charmander_idle_0062.png in Resources */,
@@ -1687,10 +1687,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		70BBDBAA1C6EC79500503564 /* Main.storyboard */ = {
+		70AE8C471C78F17D00B0DD9D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				70BBDBAB1C6EC79500503564 /* Base */,
+				70AE8C481C78F17D00B0DD9D /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
