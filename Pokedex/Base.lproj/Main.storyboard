@@ -4,8 +4,76 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
+        <!--Insert Pokemon View Controller-->
+        <scene sceneID="FEc-4r-kMB">
+            <objects>
+                <viewController id="3cg-PK-Ksd" customClass="InsertPokemonViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F4W-rg-gCq"/>
+                        <viewControllerLayoutGuide type="bottom" id="yEU-op-KwS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EJc-kP-0rt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name Pokemon" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k2U-nf-fVV">
+                                <rect key="frame" x="12" y="65" width="296" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Aab-OB-5Mv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r78-tG-eDT">
+                                <rect key="frame" x="240" y="25" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="KmE-5V-RAj"/>
+                                    <constraint firstAttribute="height" constant="30" id="O4I-gQ-JPV"/>
+                                </constraints>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneAction:" destination="3cg-PK-Ksd" eventType="touchUpInside" id="OZ0-Me-StJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDF-WG-ITe">
+                                <rect key="frame" x="12" y="25" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="62Y-IC-P25"/>
+                                    <constraint firstAttribute="height" constant="30" id="Vzu-Bs-dyq"/>
+                                </constraints>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelAction:" destination="3cg-PK-Ksd" eventType="touchUpInside" id="WR2-aF-c9f"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="k2U-nf-fVV" firstAttribute="leading" secondItem="EJc-kP-0rt" secondAttribute="leadingMargin" constant="-4" id="DN9-XC-3Kq"/>
+                            <constraint firstItem="r78-tG-eDT" firstAttribute="trailing" secondItem="EJc-kP-0rt" secondAttribute="trailingMargin" constant="-4" id="DUf-hp-yhg"/>
+                            <constraint firstItem="k2U-nf-fVV" firstAttribute="top" secondItem="F4W-rg-gCq" secondAttribute="bottom" constant="45" id="T0B-C1-Ey7"/>
+                            <constraint firstItem="r78-tG-eDT" firstAttribute="top" secondItem="F4W-rg-gCq" secondAttribute="bottom" constant="5" id="dzr-Lu-j7Q"/>
+                            <constraint firstItem="bDF-WG-ITe" firstAttribute="leading" secondItem="EJc-kP-0rt" secondAttribute="leadingMargin" constant="-4" id="jbF-dv-6WB"/>
+                            <constraint firstItem="bDF-WG-ITe" firstAttribute="top" secondItem="F4W-rg-gCq" secondAttribute="bottom" constant="5" id="nZi-0H-g4t"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k2U-nf-fVV" secondAttribute="trailing" constant="-4" id="z3C-ii-7mk"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="bDF-WG-ITe" id="RMT-Oq-GBp"/>
+                        <outlet property="doneButton" destination="r78-tG-eDT" id="Ezo-9f-30N"/>
+                        <outlet property="nameTextField" destination="k2U-nf-fVV" id="wu5-zt-UVt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BKW-13-AbA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="576" y="408"/>
+        </scene>
         <!--Pokedex-->
         <scene sceneID="BND-YX-tmb">
             <objects>
@@ -18,38 +86,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UW6-eI-R47">
-                                <rect key="frame" x="7" y="83" width="300" height="160"/>
-                                <state key="normal" title="Charmander"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yuU-Eg-vQk">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pokemonCell" rowHeight="150" id="iuy-Ea-y5r" customClass="PokemonTableViewCell" customModule="Pokedex" customModuleProvider="target" colorLabel="IBBuiltInLabel-Green">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iuy-Ea-y5r" id="XYw-Zd-QuV">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZQR-Dh-OcM">
+                                                    <rect key="frame" x="8" y="8" width="304" height="112"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZZ-dI-n4i">
+                                                    <rect key="frame" x="8" y="120" width="304" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="qJG-En-a5Y"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZQR-Dh-OcM" firstAttribute="leading" secondItem="XYw-Zd-QuV" secondAttribute="leadingMargin" id="0CH-YH-nEn"/>
+                                                <constraint firstItem="oZZ-dI-n4i" firstAttribute="leading" secondItem="XYw-Zd-QuV" secondAttribute="leadingMargin" id="2C1-ZR-uXH"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="oZZ-dI-n4i" secondAttribute="trailing" id="3ZP-RI-DjX"/>
+                                                <constraint firstItem="oZZ-dI-n4i" firstAttribute="top" secondItem="ZQR-Dh-OcM" secondAttribute="bottom" id="6J3-G7-LZv"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZQR-Dh-OcM" secondAttribute="trailing" id="BEW-kf-sqm"/>
+                                                <constraint firstItem="ZQR-Dh-OcM" firstAttribute="top" secondItem="XYw-Zd-QuV" secondAttribute="topMargin" id="Em8-U1-mX2"/>
+                                                <constraint firstItem="oZZ-dI-n4i" firstAttribute="bottom" secondItem="XYw-Zd-QuV" secondAttribute="bottomMargin" id="WrJ-zc-fDv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="pokemonImageView" destination="ZQR-Dh-OcM" id="8G2-6V-XnQ"/>
+                                            <outlet property="pokemonLabel" destination="oZZ-dI-n4i" id="dSx-Pk-GmN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <action selector="showPokemonDetailAction:" destination="F6u-ke-BzA" eventType="touchUpInside" id="QPF-wf-kUd"/>
+                                    <outlet property="dataSource" destination="F6u-ke-BzA" id="8JI-nO-t68"/>
+                                    <outlet property="delegate" destination="F6u-ke-BzA" id="2nB-lZ-Fww"/>
                                 </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="charmander_idle_0001.png" translatesAutoresizingMaskIntoConstraints="NO" id="XDb-AH-A5A">
-                                <rect key="frame" x="75" y="72" width="170" height="160"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bulbasaur_idle_0001.png" translatesAutoresizingMaskIntoConstraints="NO" id="DXb-f4-gdc">
-                                <rect key="frame" x="73" y="240" width="170" height="160"/>
-                            </imageView>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="su8-RZ-BHg">
-                                <rect key="frame" x="10" y="276" width="300" height="160"/>
-                                <state key="normal" title="Bulbasour"/>
-                                <connections>
-                                    <action selector="showPokemonDetailAction:" destination="F6u-ke-BzA" eventType="touchUpInside" id="vBZ-7D-HnZ"/>
-                                </connections>
-                            </button>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yuU-Eg-vQk" firstAttribute="top" secondItem="LDj-eW-nHH" secondAttribute="top" id="2Tr-Ms-UBl"/>
+                            <constraint firstItem="yuU-Eg-vQk" firstAttribute="leading" secondItem="LDj-eW-nHH" secondAttribute="leading" id="UXr-DV-2ez"/>
+                            <constraint firstAttribute="trailing" secondItem="yuU-Eg-vQk" secondAttribute="trailing" id="Wrh-Lk-62Z"/>
+                            <constraint firstItem="HuI-1r-G0S" firstAttribute="top" secondItem="yuU-Eg-vQk" secondAttribute="bottom" id="ngF-vr-BNi"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Pokedex" id="6AF-S2-raO"/>
+                    <navigationItem key="navigationItem" title="Pokedex" id="6AF-S2-raO">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="hxE-Vd-uFr">
+                            <connections>
+                                <action selector="editAction:" destination="F6u-ke-BzA" id="XPm-s4-nKC"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="KOM-dO-wlc">
+                                <connections>
+                                    <action selector="insertAction:" destination="F6u-ke-BzA" id="uMl-f1-hWs"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Add" id="9PG-eo-FLQ">
+                                <connections>
+                                    <segue destination="3cg-PK-Ksd" kind="presentation" identifier="InsertPokemonShowSegue" id="6Ud-Uc-d9i"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="editBarButton" destination="hxE-Vd-uFr" id="tW9-fb-qWx"/>
+                        <outlet property="tableView" destination="yuU-Eg-vQk" id="juw-f3-uVn"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="ShowPokemonDetailSegue" id="vXp-Sq-38T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYh-aC-hko" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="560" y="408"/>
+            <point key="canvasLocation" x="199" y="408"/>
         </scene>
         <!--Pokemon Name-->
         <scene sceneID="tne-QT-ifu">
@@ -198,7 +317,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcE-l2-LPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="165" y="408"/>
+            <point key="canvasLocation" x="-209" y="408"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FTL-ga-4iD">
@@ -220,10 +339,6 @@
             <point key="canvasLocation" x="1383" y="408"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="bulbasaur_idle_0001.png" width="192" height="192"/>
-        <image name="charmander_idle_0001.png" width="192" height="192"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FJj-FX-EvE"/>
     </inferredMetricsTieBreakers>
